@@ -1,14 +1,22 @@
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
+import NewPlace from './places/pages/NewPlace';
+import Users from './user/pages/Users';
 
 const App = () => {
-  const courseGoals = [
-    {id: 'cg1', text: 'Finish the Course'},
-    {id: 'cg1', text: 'Finish the Course'},
-    {id: 'cg1', text: 'Finish the Course'},
-  ]
   return (
-    
+  <Router>
+    <Switch>
+      <Route path="/" exact>
+        <Users/>
+      </Route>
+      <Route path="/places/new" exact>
+        <NewPlace/>
+      </Route>
+      <Redirect to="/" />
+    </Switch>
+  </Router>
   );
-}
+};
 
 export default App;
